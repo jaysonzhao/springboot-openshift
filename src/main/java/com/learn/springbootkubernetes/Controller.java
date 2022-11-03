@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 public class Controller {
     @RequestMapping("/")
     public String index() {
-        String shang = "中文测试";
+        String shang = "今天台风";
 		String result = "";
 		System.out.println(shang);
 		try {
