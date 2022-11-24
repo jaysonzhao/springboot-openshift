@@ -35,15 +35,18 @@ public class Controller {
 			
 			e.printStackTrace();
 		}
-		try (Scope scope = tracer.buildSpan("say-hello-handler").startActive(true)) {
+		Span span = tracer.buildSpan("say-hello").start();
+		try {
             String response = shang;
-			Span span = scope.span();
+			
             Map<String, String> fields = new LinkedHashMap<>();
             fields.put("event", name);
             fields.put("message", "this is a log message for name " + name);
             span.log(fields);
             span.setTag("response", response);
            
+        } finally {
+            span.finish();
         }
 
         return shang;
