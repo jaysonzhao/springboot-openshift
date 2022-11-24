@@ -40,8 +40,8 @@ public class Controller {
             String response = shang;
 			
             Map<String, String> fields = new LinkedHashMap<>();
-            fields.put("event", name);
-            fields.put("message", "this is a log message for name " + name);
+            fields.put("event", shang);
+            fields.put("message", "this is a log message for name " + shang);
             span.log(fields);
             span.setTag("response", response);
            
